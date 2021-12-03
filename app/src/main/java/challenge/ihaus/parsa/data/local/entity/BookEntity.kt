@@ -1,9 +1,11 @@
 package challenge.ihaus.parsa.data.local.entity
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "books")
 data class BookEntity(
+    @PrimaryKey
     val id: Int,
     val title: String,
     val subjects: List<String>,
@@ -15,5 +17,4 @@ data class BookEntity(
     val mediaType: String,
     val otherInformation: Map<String,String>,
     val downloadCount: Int,
-    val imageUrl: String
 )

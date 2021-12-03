@@ -1,5 +1,7 @@
 package challenge.ihaus.parsa.data.remote.dto
 
+import com.google.gson.annotations.SerializedName
+
 data class BookDto(
     val id: Int,
     val title: String,
@@ -9,7 +11,9 @@ data class BookDto(
     val bookshelves: List<String>,
     val languages: List<String>,
     val copyright: Boolean?,
-    val media_type: String,
+    @SerializedName("media_type")
+    val mediaType: String,
     val formats: Map<String, String>,
-    val download_count: Int,
+    @SerializedName("media_type")
+    val downloadCount: Int,
 )

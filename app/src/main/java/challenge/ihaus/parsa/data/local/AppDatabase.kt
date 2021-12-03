@@ -5,9 +5,10 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import challenge.ihaus.parsa.data.local.dao.BookDao
 import challenge.ihaus.parsa.data.local.dao.RemoteKeyDao
+import challenge.ihaus.parsa.data.local.entity.BookEntity
 import challenge.ihaus.parsa.data.local.entity.RemoteKeyEntity
 
-@Database(entities = [Boolean::class, RemoteKeyEntity::class], version = 1)
+@Database(entities = [BookEntity::class, RemoteKeyEntity::class], version = 1)
 @TypeConverters(Convertors::class)
 abstract class AppDatabase : RoomDatabase() {
 
