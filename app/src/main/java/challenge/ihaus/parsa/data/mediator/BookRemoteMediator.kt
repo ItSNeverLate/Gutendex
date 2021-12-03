@@ -22,7 +22,7 @@ class BookRemoteMediator(
     private val db: AppDatabase,
 ) : RemoteMediator<Int, BookEntity>() {
 
-    private val reviewDao = db.bookDao()
+    private val bookDao = db.bookDao()
     private val remoteKeyDao = db.remoteKeyDao()
 
     override suspend fun load(
@@ -31,7 +31,7 @@ class BookRemoteMediator(
     ): MediatorResult {
         val key = when (loadType) {
             REFRESH -> {
-                if (reviewDao.count() > 0) return MediatorResult.Success(false)
+                if (bookDao.count() > 0) return MediatorResult.Success(false)
                 null
             }
             PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
@@ -72,7 +72,7 @@ class BookRemoteMediator(
                         isEndReached = endOfPaginationReached
                     )
                 )
-                reviewDao.insertAll(BookEntityMapper.fromDtoList(books))
+                bookDao.insertAll(BookEntityMapper.fromDtoList(books))
             }
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (exception: IOException) {

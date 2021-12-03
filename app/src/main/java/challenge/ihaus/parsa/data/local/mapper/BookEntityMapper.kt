@@ -5,6 +5,7 @@ import challenge.ihaus.parsa.data.remote.dto.BookDto
 import challenge.ihaus.parsa.domain.model.Book
 import challenge.ihaus.parsa.domain.util.Mapper
 
+@Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE")
 object BookEntityMapper : Mapper<BookEntity, Book> {
 
     override fun toModel(entity: BookEntity) = Book(

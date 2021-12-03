@@ -1,5 +1,9 @@
 package challenge.ihaus.parsa.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Book(
     val id: Int,
     val title: String,
@@ -13,4 +17,4 @@ data class Book(
     val otherInformation: Map<String,String>,
     val downloadCount: Int,
     val imageUrl: String
-)
+):Parcelable

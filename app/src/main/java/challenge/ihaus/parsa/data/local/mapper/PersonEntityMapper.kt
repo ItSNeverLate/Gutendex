@@ -5,6 +5,7 @@ import challenge.ihaus.parsa.data.remote.dto.PersonDto
 import challenge.ihaus.parsa.domain.model.Person
 import challenge.ihaus.parsa.domain.util.Mapper
 
+@Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE")
 object PersonEntityMapper : Mapper<PersonEntity, Person> {
     override fun fromModel(model: Person) = PersonEntity(
         name = model.name,
