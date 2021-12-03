@@ -1,6 +1,10 @@
 package challenge.ihaus.parsa.di.module
 
 
+import android.app.Application
+import androidx.room.Room
+import challenge.ihaus.parsa.data.local.AppDatabase
+import challenge.ihaus.parsa.data.local.AppDatabase.Companion.DB_NAME
 import challenge.ihaus.parsa.data.remote.AppApi
 import dagger.Module
 import dagger.Provides
@@ -26,4 +30,10 @@ object AppModule {
     @Singleton
     fun provideAppApi(retrofit: Retrofit): AppApi =
         retrofit.create(AppApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDatabase(app: Application): AppDatabase =
+        Room.databaseBuilder(app, AppDatabase::class.java, DB_NAME)
+            .build()
 }
