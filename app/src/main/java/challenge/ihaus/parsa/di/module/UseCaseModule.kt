@@ -15,6 +15,6 @@ object UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideGetBooksUseCase(reviewRepository: BookRepository): GetBooksUseCase =
-        GetBooksUseCaseImp(reviewRepository)
+    fun provideGetBooksUseCase(bookRepository: BookRepository): GetBooksUseCase =
+        GetBooksUseCaseImp(bookRepository)
 }
