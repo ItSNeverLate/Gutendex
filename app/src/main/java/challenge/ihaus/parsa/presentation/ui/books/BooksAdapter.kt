@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import challenge.ihaus.parsa.R
 import challenge.ihaus.parsa.databinding.ItemBookBinding
 import challenge.ihaus.parsa.domain.model.Book
 import com.bumptech.glide.RequestManager
@@ -50,6 +51,7 @@ class BooksAdapter(val glide: RequestManager, val listener: OnClickListener) :
                     glide
                         .load(it)
                         .circleCrop()
+                        .placeholder(R.drawable.ic_image_place_holder)
                         .into(imageViewBanner)
                 }
 
