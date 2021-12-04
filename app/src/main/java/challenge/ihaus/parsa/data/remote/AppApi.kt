@@ -12,6 +12,6 @@ interface AppApi {
 
     @GET("books/")
     suspend fun getBooks(
-        @Query(value = "page") page: Int,
+        @Query(value = "page") page: Int?,
     ): BookResponse
 }

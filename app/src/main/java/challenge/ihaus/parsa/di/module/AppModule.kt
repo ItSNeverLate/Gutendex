@@ -1,6 +1,5 @@
 package challenge.ihaus.parsa.di.module
 
-
 import android.app.Application
 import androidx.room.Room
 import challenge.ihaus.parsa.data.local.AppDatabase

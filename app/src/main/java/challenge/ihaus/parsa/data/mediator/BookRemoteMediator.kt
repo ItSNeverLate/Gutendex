@@ -1,5 +1,7 @@
 package challenge.ihaus.parsa.data.mediator
 
+
+import android.net.Uri
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.LoadType.*
@@ -14,7 +16,7 @@ import challenge.ihaus.parsa.data.remote.AppApi
 import retrofit2.HttpException
 import java.io.IOException
 
-const val DEFAULT_PAGE_INDEX = 0
+const val DEFAULT_PAGE_INDEX = 1
 
 @ExperimentalPagingApi
 class BookRemoteMediator(
@@ -59,10 +61,14 @@ class BookRemoteMediator(
 
             val endOfPaginationReached = page * pageSize >= apiResponse.count
 
-            db.withTransaction {
+            val prevKey = apiResponse.previous?.let { previousPageUrl ->
+                Uri.parse(previousPageUrl).getQueryParameter("page")?.toInt()
+            }
+            val nextKey = apiResponse.next?.let { nextPageUrl ->
+                Uri.parse(nextPageUrl).getQueryParameter("page")?.toInt()
+            }
 
-                val prevKey = if (page == DEFAULT_PAGE_INDEX) null else page - 1
-                val nextKey = if (endOfPaginationReached) null else page + 1
+            db.withTransaction {
 
                 remoteKeyDao.insert(
                     RemoteKeyEntity(

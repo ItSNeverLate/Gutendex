@@ -14,6 +14,6 @@ data class BookDto(
     @SerializedName("media_type")
     val mediaType: String,
     val formats: Map<String, String>,
-    @SerializedName("media_type")
+    @SerializedName("download_count")
     val downloadCount: Int,
 )

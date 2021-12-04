@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 class GetBooksUseCaseImp @Inject constructor(private val bookRepository: BookRepository) :
     GetBooksUseCase {
+
     override fun invoke(filterBy: GetBooksUseCase.FilterBy): Flow<PagingData<Book>> =
         bookRepository.getBooks(filterBy)
 }

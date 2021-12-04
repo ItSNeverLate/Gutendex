@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import challenge.ihaus.parsa.R
 import challenge.ihaus.parsa.databinding.ItemBookBinding
 import challenge.ihaus.parsa.domain.model.Book
 import com.bumptech.glide.RequestManager
@@ -57,10 +56,10 @@ class BooksAdapter(val glide: RequestManager, val listener: OnClickListener) :
                 textViewTitle.text = book.title
                 // We can show all Authors as well,
                 // but I used the first one as a test (base on the code challenge UI)
-                textViewAuthor.text = root.context.getString(R.string.author_info,
-                    book.authors[0].name,
-                    book.authors[0].birthYear,
-                    book.authors[0].deathYear)
+                if (book.authors.isNotEmpty()) {
+                    textViewAuthor.text =
+                        "${book.authors[0].name} - ${book.authors[0].birthYear} - ${book.authors[0].deathYear}"
+                }
                 textViewSubjects.text = book.subjects[0]
                 if (book.subjects.size > 1)
                     textViewSubjects.text =
