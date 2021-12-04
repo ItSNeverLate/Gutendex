@@ -25,7 +25,7 @@ class BookRepositoryImp constructor(
         val pagingConfig = PagingConfig(
             pageSize = NETWORK_PAGE_SIZE,
         )
-        val pagingSourceFactory = { db.bookDao().getAll() }
+        val pagingSourceFactory = { db.bookDao().getAllByFilter(filterBy) }
         return Pager(
             config = pagingConfig,
             remoteMediator = BookRemoteMediator(api, db),

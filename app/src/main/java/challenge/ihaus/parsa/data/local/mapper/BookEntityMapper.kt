@@ -23,32 +23,17 @@ object BookEntityMapper : Mapper<BookEntity, Book> {
         imageUrl = entity.otherInformation["image/jpeg"] ?: "",
     )
 
-    override fun fromModel(model: Book) =
-        BookEntity(
-            id = model.id,
-            title = model.title,
-            subjects = model.subjects,
-            authors = PersonEntityMapper.fromModelList(model.authors),
-            translators = PersonEntityMapper.fromModelList(model.translators),
-            bookshelves = model.bookshelves,
-            languages = model.languages,
-            copyright = model.copyright,
-            mediaType = model.mediaType,
-            otherInformation = model.otherInformation,
-            downloadCount = model.downloadCount,
-        )
-
-    override fun fromModelList(list: List<Book>): List<BookEntity> =
-        list.map {
-            fromModel(it)
-        }
-
     override fun toModelList(list: List<BookEntity>): List<Book> = list.map {
         toModel(it)
     }
 
-    private fun fromDto(dto: BookDto) =
-        BookEntity(
+    private fun fromDto(dto: BookDto): BookEntity {
+        var firstAuthorBirthYear: Int? = null
+        if (dto.authors.isNotEmpty()) {
+            firstAuthorBirthYear = dto.authors[0].birthYear
+        }
+
+        return BookEntity(
             id = dto.id,
             title = dto.title,
             subjects = dto.subjects,
@@ -60,7 +45,9 @@ object BookEntityMapper : Mapper<BookEntity, Book> {
             mediaType = dto.mediaType,
             otherInformation = dto.formats,
             downloadCount = dto.downloadCount,
+            authorBirthYear = firstAuthorBirthYear
         )
+    }
 
     fun fromDtoList(list: List<BookDto>): List<BookEntity> =
         list.map {

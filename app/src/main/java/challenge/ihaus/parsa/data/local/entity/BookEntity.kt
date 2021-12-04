@@ -10,6 +10,7 @@ data class BookEntity(
     val title: String,
     val subjects: List<String>,
     val authors: List<PersonEntity>,
+    val authorBirthYear: Int?,
     val translators: List<PersonEntity>,
     val bookshelves: List<String>,
     val languages: List<String>,
