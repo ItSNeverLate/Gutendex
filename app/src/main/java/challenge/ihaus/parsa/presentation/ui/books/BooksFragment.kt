@@ -42,6 +42,8 @@ class BooksFragment : Fragment(R.layout.fragment_books), BooksAdapter.OnClickLis
     }
 
     private fun init() {
+        requireActivity().title = null
+
         booksAdapter = BooksAdapter(Glide.with(requireContext()), this)
 
         setUpAdapter()

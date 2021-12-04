@@ -9,8 +9,9 @@
         <entry key="app/src/main/res/layout/fragment_books.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/fragment_reviews.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/item_action_filter_by.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/item_book.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/item_book.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_filtered_by.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/item_subject.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/menu_fragment_books.xml" value="0.19322916666666667" />
       </map>
     </option>
