@@ -1,8 +1,13 @@
 package challenge.ihaus.parsa.presentation.ui.books
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatSpinner
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -32,6 +37,8 @@ class BooksFragment : Fragment(R.layout.fragment_books), BooksAdapter.OnClickLis
 
         init()
         subscribe()
+
+        setHasOptionsMenu(true)
     }
 
     private fun init() {
@@ -90,6 +97,40 @@ class BooksFragment : Fragment(R.layout.fragment_books), BooksAdapter.OnClickLis
                 }
             }
             adapter = booksAdapter
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_fragment_books, menu)
+
+        val item = menu?.findItem(R.id.action_filter_by)
+        val spinner = item?.actionView as AppCompatSpinner
+
+        val filterSpinnerList = listOf(
+            getString(R.string.all_books),
+            getString(R.string.copy_right_free),
+            getString(R.string.century_19th),
+        )
+        var arrayAdapter =
+            ArrayAdapter(
+                requireContext(),
+                R.layout.item_filtered_by,
+                filterSpinnerList
+            )
+        arrayAdapter.setDropDownViewResource(R.layout.item_action_filter_by)
+        spinner.adapter = arrayAdapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                when (position) {
+                    1 -> viewModel.onFilterByFreeCopyRight()
+                    2 -> viewModel.onFilterBy19thCentury()
+                    else -> viewModel.onRemoveFilters()
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
     }
 }

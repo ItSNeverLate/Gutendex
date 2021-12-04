@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Gutendex</string>
+    <string name="action_filter_by">Filter By</string>
+    <string name="all_books">All books</string>
+    <string name="copy_right_free">Copy Right - Free</string>
+    <string name="century_19th">Century 19th</string>
 </resources>
