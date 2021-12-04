@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/booksFragment"
         android:name="challenge.ihaus.parsa.presentation.ui.books.BooksFragment"
-        android:label="Books"
+        android:label="Overview"
         tools:layout="@layout/fragment_books" >
         <action
             android:id="@+id/action_books_to_book_detail"
