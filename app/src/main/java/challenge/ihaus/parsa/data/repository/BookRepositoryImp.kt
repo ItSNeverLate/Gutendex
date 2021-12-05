@@ -2,6 +2,7 @@ package challenge.ihaus.parsa.data.repository
 
 import androidx.paging.*
 import challenge.ihaus.parsa.data.local.AppDatabase
+import challenge.ihaus.parsa.data.local.entity.FavoriteEntity
 import challenge.ihaus.parsa.data.local.mapper.BookEntityMapper
 import challenge.ihaus.parsa.data.mediator.BookRemoteMediator
 import challenge.ihaus.parsa.data.remote.AppApi
@@ -34,4 +35,12 @@ class BookRepositoryImp constructor(
             pagingData.map { entity -> BookEntityMapper.toModel(entity) }
         }
     } //can also return livedata
+
+    override suspend fun makeBookFavorite(book: Book) {
+        db.favoriteDao().insert(FavoriteEntity(book.id))
+    }
+
+    override suspend fun makeBookUnFavorite(book: Book) {
+        db.favoriteDao().delete(FavoriteEntity(book.id))
+    }
 }

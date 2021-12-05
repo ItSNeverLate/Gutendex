@@ -11,11 +11,14 @@ data class BookEntity(
     val subjects: List<String>,
     val authors: List<PersonEntity>,
     val authorBirthYear: Int?,
+    val authorDeathYear: Int?,
     val translators: List<PersonEntity>,
     val bookshelves: List<String>,
     val languages: List<String>,
     val copyright: Boolean?,
     val mediaType: String,
-    val otherInformation: Map<String,String>,
+    val otherInformation: Map<String, String>,
     val downloadCount: Int,
-)
+) {
+    var isFavorite: Boolean = false
+}

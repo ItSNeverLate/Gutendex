@@ -66,6 +66,14 @@ class BooksAdapter(val glide: RequestManager, val listener: OnClickListener) :
                 if (book.subjects.size > 1)
                     textViewSubjects.text =
                         "${textViewSubjects.text} + ${book.subjects.size - 1} more..."
+
+                val favoriteResId =
+                    if (book.isFavorite) {
+                        R.drawable.ic_filled_star
+                    } else {
+                        R.drawable.ic_outlined_star
+                    }
+                imageViewFavorite.setBackgroundResource(favoriteResId)
             }
         }
 

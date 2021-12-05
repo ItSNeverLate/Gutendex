@@ -112,6 +112,7 @@ class BooksFragment : Fragment(R.layout.fragment_books), BooksAdapter.OnClickLis
             getString(R.string.all_books),
             getString(R.string.copy_right_free),
             getString(R.string.century_19th),
+            getString(R.string.favourites),
         )
         var arrayAdapter =
             ArrayAdapter(
@@ -128,6 +129,7 @@ class BooksFragment : Fragment(R.layout.fragment_books), BooksAdapter.OnClickLis
                 when (position) {
                     1 -> viewModel.onFilterByFreeCopyRight()
                     2 -> viewModel.onFilterBy19thCentury()
+                    3 -> viewModel.onFilterByFavorites()
                     else -> viewModel.onRemoveFilters()
                 }
             }

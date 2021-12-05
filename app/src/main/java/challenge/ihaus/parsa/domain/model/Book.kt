@@ -16,5 +16,6 @@ data class Book(
     val mediaType: String,
     val otherInformation: Map<String,String>,
     val downloadCount: Int,
-    val imageUrl: String?
+    val imageUrl: String?,
+    val isFavorite: Boolean = false
 ):Parcelable

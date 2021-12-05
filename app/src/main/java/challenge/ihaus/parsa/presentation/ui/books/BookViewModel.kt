@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
+import challenge.ihaus.parsa.domain.model.Book
 import challenge.ihaus.parsa.domain.usecase.book.GetBooksUseCase
+import challenge.ihaus.parsa.domain.usecase.book.ToggleBookFavoriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,5 +36,9 @@ class BookViewModel @Inject constructor(
 
     fun onFilterBy19thCentury() {
         filterByLiveData.value = GetBooksUseCase.FilterBy.CENTURY_19TH
+    }
+
+    fun onFilterByFavorites() {
+        filterByLiveData.value = GetBooksUseCase.FilterBy.FAVORITES
     }
 }

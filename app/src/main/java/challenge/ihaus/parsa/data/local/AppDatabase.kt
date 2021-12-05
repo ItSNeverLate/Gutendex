@@ -4,11 +4,13 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import challenge.ihaus.parsa.data.local.dao.BookDao
+import challenge.ihaus.parsa.data.local.dao.FavoriteDao
 import challenge.ihaus.parsa.data.local.dao.RemoteKeyDao
 import challenge.ihaus.parsa.data.local.entity.BookEntity
+import challenge.ihaus.parsa.data.local.entity.FavoriteEntity
 import challenge.ihaus.parsa.data.local.entity.RemoteKeyEntity
 
-@Database(entities = [BookEntity::class, RemoteKeyEntity::class], version = 1)
+@Database(entities = [BookEntity::class, FavoriteEntity::class, RemoteKeyEntity::class], version = 1)
 @TypeConverters(Convertors::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -17,5 +19,6 @@ abstract class AppDatabase : RoomDatabase() {
     }
 
     abstract fun bookDao(): BookDao
+    abstract fun favoriteDao(): FavoriteDao
     abstract fun remoteKeyDao(): RemoteKeyDao
 }

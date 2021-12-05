@@ -4,12 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_arrow_down.xml" value="0.19814814814814816" />
+        <entry key="app/src/main/res/drawable/ic_filled_star.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/ic_image_place_holder.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/ic_outlined_star.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/fragment_book_detail.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/fragment_books.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/fragment_reviews.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/item_action_filter_by.xml" value="0.19322916666666667" />
-        <entry key="app/src/main/res/layout/item_book.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_book.xml" value="0.2365038560411311" />
         <entry key="app/src/main/res/layout/item_filtered_by.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/item_subject.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/menu_fragment_books.xml" value="0.19322916666666667" />

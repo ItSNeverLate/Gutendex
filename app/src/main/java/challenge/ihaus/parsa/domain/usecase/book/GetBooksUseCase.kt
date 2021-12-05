@@ -5,7 +5,7 @@ import challenge.ihaus.parsa.domain.model.Book
 import kotlinx.coroutines.flow.Flow
 
 interface GetBooksUseCase {
-    enum class FilterBy { NONE, FREE_COPY_RIGHT, CENTURY_19TH }
+    enum class FilterBy { NONE, FREE_COPY_RIGHT, CENTURY_19TH,FAVORITES }
 
     operator fun invoke(filterBy: FilterBy): Flow<PagingData<Book>>
 }

@@ -8,4 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface BookRepository {
 
     fun getBooks(filterBy: GetBooksUseCase.FilterBy): Flow<PagingData<Book>>
+    suspend fun makeBookFavorite(book: Book)
+    suspend fun makeBookUnFavorite(book: Book)
 }

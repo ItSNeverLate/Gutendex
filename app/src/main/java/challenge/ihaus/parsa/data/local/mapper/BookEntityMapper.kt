@@ -21,6 +21,7 @@ object BookEntityMapper : Mapper<BookEntity, Book> {
         otherInformation = entity.otherInformation,
         downloadCount = entity.downloadCount,
         imageUrl = entity.otherInformation["image/jpeg"] ?: "",
+        isFavorite = entity.isFavorite
     )
 
     override fun toModelList(list: List<BookEntity>): List<Book> = list.map {
@@ -29,8 +30,10 @@ object BookEntityMapper : Mapper<BookEntity, Book> {
 
     private fun fromDto(dto: BookDto): BookEntity {
         var firstAuthorBirthYear: Int? = null
+        var firstAuthorDeathYear: Int? = null
         if (dto.authors.isNotEmpty()) {
             firstAuthorBirthYear = dto.authors[0].birthYear
+            firstAuthorDeathYear = dto.authors[0].deathYear
         }
 
         return BookEntity(
@@ -45,7 +48,8 @@ object BookEntityMapper : Mapper<BookEntity, Book> {
             mediaType = dto.mediaType,
             otherInformation = dto.formats,
             downloadCount = dto.downloadCount,
-            authorBirthYear = firstAuthorBirthYear
+            authorBirthYear = firstAuthorBirthYear,
+            authorDeathYear = firstAuthorDeathYear
         )
     }
 

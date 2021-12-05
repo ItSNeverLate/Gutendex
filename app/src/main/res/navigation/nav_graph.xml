@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/bookDetailFragment"
-        android:name="challenge.ihaus.parsa.presentation.ui.books.BookDetailFragment"
+        android:name="challenge.ihaus.parsa.presentation.ui.book_detail.BookDetailFragment"
         tools:layout="@layout/fragment_book_detail" >
         <argument
             android:name="book"
