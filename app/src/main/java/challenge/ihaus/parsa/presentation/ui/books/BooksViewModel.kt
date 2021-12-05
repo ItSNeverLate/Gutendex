@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class BookViewModel @Inject constructor(
+class BooksViewModel @Inject constructor(
     getBooksUseCase: GetBooksUseCase,
     savedState: SavedStateHandle,
 ) : ViewModel() {

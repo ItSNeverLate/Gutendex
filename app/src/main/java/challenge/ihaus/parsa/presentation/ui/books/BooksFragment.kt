@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class BooksFragment : Fragment(R.layout.fragment_books), BooksAdapter.OnClickListener {
 
-    private val viewModel: BookViewModel by viewModels()
+    private val viewModel: BooksViewModel by viewModels()
     private lateinit var binding: FragmentBooksBinding
     private lateinit var booksAdapter: BooksAdapter
 
